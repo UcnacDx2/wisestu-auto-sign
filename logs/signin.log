@@ -1,0 +1,105 @@
+{"level":"info","time":"2025-08-12T18:22:57.087+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:22:57.107+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"error","time":"2025-08-12T18:22:59.641+0800","caller":"signin/service.go:40","msg":"登录失败","error":"LLM API 请求失败: 404 Not Found"}
+{"level":"error","time":"2025-08-12T18:22:59.642+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"LLM API 请求失败: 404 Not Found"}
+{"level":"info","time":"2025-08-12T18:23:18.553+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:23:18.570+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"error","time":"2025-08-12T18:23:20.340+0800","caller":"signin/service.go:40","msg":"登录失败","error":"LLM API 请求失败: 401 Unauthorized"}
+{"level":"error","time":"2025-08-12T18:23:20.340+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"LLM API 请求失败: 401 Unauthorized"}
+{"level":"info","time":"2025-08-12T18:25:42.527+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:25:42.543+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"error","time":"2025-08-12T18:25:44.372+0800","caller":"signin/service.go:40","msg":"登录失败","error":"LLM API 请求失败: 401 Unauthorized"}
+{"level":"error","time":"2025-08-12T18:25:44.372+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"LLM API 请求失败: 401 Unauthorized"}
+{"level":"info","time":"2025-08-12T18:29:14.374+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:29:14.393+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"error","time":"2025-08-12T18:29:14.663+0800","caller":"signin/service.go:40","msg":"登录失败","error":"Post \"\": unsupported protocol scheme \"\""}
+{"level":"error","time":"2025-08-12T18:29:14.663+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"Post \"\": unsupported protocol scheme \"\""}
+{"level":"info","time":"2025-08-12T18:29:48.172+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:29:48.188+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"error","time":"2025-08-12T18:29:50.402+0800","caller":"signin/service.go:40","msg":"登录失败","error":"LLM API 请求失败: 401 Unauthorized"}
+{"level":"error","time":"2025-08-12T18:29:50.402+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"LLM API 请求失败: 401 Unauthorized"}
+{"level":"info","time":"2025-08-12T18:32:14.183+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:32:14.201+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"error","time":"2025-08-12T18:32:16.130+0800","caller":"signin/service.go:40","msg":"登录失败","error":"LLM API 请求失败: 401 Unauthorized"}
+{"level":"error","time":"2025-08-12T18:32:16.130+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"LLM API 请求失败: 401 Unauthorized"}
+{"level":"info","time":"2025-08-12T18:34:17.888+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:34:17.904+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T18:34:20.828+0800","caller":"signin/service.go:80","msg":"验证码识别结果","answer":10}
+{"level":"error","time":"2025-08-12T18:34:20.899+0800","caller":"signin/service.go:40","msg":"登录失败","error":"未能在响应头中找到 token"}
+{"level":"error","time":"2025-08-12T18:34:20.900+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"未能在响应头中找到 token"}
+{"level":"info","time":"2025-08-12T18:38:39.890+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:38:39.907+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T18:38:42.816+0800","caller":"signin/service.go:80","msg":"验证码识别结果","answer":8}
+{"level":"info","time":"2025-08-12T18:38:42.922+0800","caller":"signin/service.go:44","msg":"登录成功"}
+{"level":"info","time":"2025-08-12T18:38:42.999+0800","caller":"signin/service.go:53","msg":"没有需要签到的任务"}
+{"level":"info","time":"2025-08-12T18:38:42.999+0800","caller":"zhxg-signin/main.go:59","msg":"签到任务执行完毕"}
+{"level":"info","time":"2025-08-12T18:51:31.383+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:51:31.402+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T18:51:35.766+0800","caller":"signin/service.go:80","msg":"验证码识别结果","answer":4}
+{"level":"error","time":"2025-08-12T18:51:35.928+0800","caller":"signin/service.go:40","msg":"登录失败","error":"未能在响应头中找到 token"}
+{"level":"error","time":"2025-08-12T18:51:35.928+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"未能在响应头中找到 token"}
+{"level":"info","time":"2025-08-12T18:51:51.122+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:51:51.141+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T18:51:54.030+0800","caller":"signin/service.go:80","msg":"验证码识别结果","answer":3}
+{"level":"error","time":"2025-08-12T18:51:54.102+0800","caller":"signin/service.go:40","msg":"登录失败","error":"未能在响应头中找到 token"}
+{"level":"error","time":"2025-08-12T18:51:54.102+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"未能在响应头中找到 token"}
+{"level":"info","time":"2025-08-12T18:52:43.542+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:52:43.559+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T18:52:46.246+0800","caller":"signin/service.go:80","msg":"验证码识别结果","answer":12}
+{"level":"error","time":"2025-08-12T18:52:46.320+0800","caller":"signin/service.go:40","msg":"登录失败","error":"未能在响应头中找到 token"}
+{"level":"error","time":"2025-08-12T18:52:46.320+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"未能在响应头中找到 token"}
+{"level":"info","time":"2025-08-12T18:52:50.885+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:52:50.902+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T18:52:53.711+0800","caller":"signin/service.go:80","msg":"验证码识别结果","answer":14}
+{"level":"error","time":"2025-08-12T18:52:53.789+0800","caller":"signin/service.go:40","msg":"登录失败","error":"未能在响应头中找到 token"}
+{"level":"error","time":"2025-08-12T18:52:53.789+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"未能在响应头中找到 token"}
+{"level":"info","time":"2025-08-12T18:53:19.480+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T18:53:19.496+0800","caller":"signin/service.go:35","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T18:53:22.041+0800","caller":"signin/service.go:80","msg":"验证码识别结果","answer":12}
+{"level":"error","time":"2025-08-12T18:53:22.115+0800","caller":"signin/service.go:40","msg":"登录失败","error":"未能在响应头中找到 token"}
+{"level":"error","time":"2025-08-12T18:53:22.115+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"未能在响应头中找到 token"}
+{"level":"info","time":"2025-08-12T19:08:39.231+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T19:08:39.249+0800","caller":"signin/service.go:38","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T19:08:39.988+0800","caller":"signin/service.go:85","msg":"检查登录状态响应","code":401,"message":"Need Login."}
+{"level":"info","time":"2025-08-12T19:08:39.988+0800","caller":"signin/service.go:49","msg":"Token 无效或不存在，需要登录"}
+{"level":"info","time":"2025-08-12T19:08:39.988+0800","caller":"signin/service.go:96","msg":"开始登录尝试","attempt":1}
+{"level":"info","time":"2025-08-12T19:08:42.705+0800","caller":"signin/service.go:115","msg":"验证码识别结果","answer":3}
+{"level":"info","time":"2025-08-12T19:08:42.786+0800","caller":"signin/service.go:149","msg":"登录响应","code":1005,"message":"验证码错误"}
+{"level":"warn","time":"2025-08-12T19:08:42.786+0800","caller":"signin/service.go:168","msg":"第 1 次尝试：登录失败，code: 1005, message: 验证码错误"}
+{"level":"info","time":"2025-08-12T19:08:47.787+0800","caller":"signin/service.go:96","msg":"开始登录尝试","attempt":2}
+{"level":"info","time":"2025-08-12T19:08:49.388+0800","caller":"signin/service.go:115","msg":"验证码识别结果","answer":5}
+{"level":"info","time":"2025-08-12T19:08:49.466+0800","caller":"signin/service.go:149","msg":"登录响应","code":1005,"message":"验证码错误"}
+{"level":"warn","time":"2025-08-12T19:08:49.466+0800","caller":"signin/service.go:168","msg":"第 2 次尝试：登录失败，code: 1005, message: 验证码错误"}
+{"level":"info","time":"2025-08-12T19:08:54.466+0800","caller":"signin/service.go:96","msg":"开始登录尝试","attempt":3}
+{"level":"info","time":"2025-08-12T19:08:56.835+0800","caller":"signin/service.go:115","msg":"验证码识别结果","answer":7}
+{"level":"info","time":"2025-08-12T19:08:56.949+0800","caller":"signin/service.go:149","msg":"登录响应","code":0,"message":"登录成功"}
+{"level":"info","time":"2025-08-12T19:08:56.950+0800","caller":"signin/service.go:57","msg":"登录成功，获取到新的 Token"}
+{"level":"error","time":"2025-08-12T19:08:57.023+0800","caller":"zhxg-signin/main.go:56","msg":"签到任务失败","error":"获取签到列表失败, code: 401, message: Need Login."}
+{"level":"info","time":"2025-08-12T19:14:21.250+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T19:14:21.268+0800","caller":"signin/service.go:38","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T19:14:21.499+0800","caller":"signin/service.go:85","msg":"检查登录状态响应","code":401,"message":"Need Login."}
+{"level":"info","time":"2025-08-12T19:14:21.499+0800","caller":"signin/service.go:49","msg":"Token 无效或不存在，需要登录"}
+{"level":"info","time":"2025-08-12T19:14:21.500+0800","caller":"signin/service.go:96","msg":"开始登录尝试","attempt":1}
+{"level":"info","time":"2025-08-12T19:14:25.311+0800","caller":"signin/service.go:115","msg":"验证码识别结果","answer":14}
+{"level":"info","time":"2025-08-12T19:14:25.383+0800","caller":"signin/service.go:149","msg":"登录响应","code":1005,"message":"验证码错误"}
+{"level":"warn","time":"2025-08-12T19:14:25.383+0800","caller":"signin/service.go:168","msg":"第 1 次尝试：登录失败，code: 1005, message: 验证码错误"}
+{"level":"info","time":"2025-08-12T19:14:30.384+0800","caller":"signin/service.go:96","msg":"开始登录尝试","attempt":2}
+{"level":"info","time":"2025-08-12T19:14:32.473+0800","caller":"signin/service.go:115","msg":"验证码识别结果","answer":0}
+{"level":"info","time":"2025-08-12T19:14:32.588+0800","caller":"signin/service.go:149","msg":"登录响应","code":0,"message":"登录成功"}
+{"level":"info","time":"2025-08-12T19:14:32.588+0800","caller":"signin/service.go:57","msg":"登录成功，获取到新的 Token"}
+{"level":"info","time":"2025-08-12T19:14:32.671+0800","caller":"signin/service.go:213","msg":"没有需要签到的任务"}
+{"level":"info","time":"2025-08-12T19:14:32.671+0800","caller":"zhxg-signin/main.go:59","msg":"签到任务执行完毕"}
+{"level":"info","time":"2025-08-12T19:21:14.759+0800","caller":"zhxg-signin/main.go:53","msg":"开始执行一次性签到任务"}
+{"level":"info","time":"2025-08-12T19:21:14.776+0800","caller":"signin/service.go:38","msg":"开始签到流程"}
+{"level":"info","time":"2025-08-12T19:21:15.500+0800","caller":"signin/service.go:85","msg":"检查登录状态响应","code":401,"message":"Need Login."}
+{"level":"info","time":"2025-08-12T19:21:15.500+0800","caller":"signin/service.go:49","msg":"Token 无效或不存在，需要登录"}
+{"level":"info","time":"2025-08-12T19:21:15.500+0800","caller":"signin/service.go:96","msg":"开始登录尝试","attempt":1}
+{"level":"info","time":"2025-08-12T19:21:19.472+0800","caller":"signin/service.go:115","msg":"验证码识别结果","answer":7}
+{"level":"info","time":"2025-08-12T19:21:19.542+0800","caller":"signin/service.go:149","msg":"登录响应","code":1005,"message":"验证码错误"}
+{"level":"warn","time":"2025-08-12T19:21:19.542+0800","caller":"signin/service.go:168","msg":"第 1 次尝试：登录失败，code: 1005, message: 验证码错误"}
+{"level":"info","time":"2025-08-12T19:21:24.543+0800","caller":"signin/service.go:96","msg":"开始登录尝试","attempt":2}
+{"level":"info","time":"2025-08-12T19:21:26.853+0800","caller":"signin/service.go:115","msg":"验证码识别结果","answer":3}
+{"level":"info","time":"2025-08-12T19:21:26.971+0800","caller":"signin/service.go:149","msg":"登录响应","code":0,"message":"登录成功"}
+{"level":"info","time":"2025-08-12T19:21:26.971+0800","caller":"signin/service.go:57","msg":"登录成功，获取到新的 Token"}
+{"level":"info","time":"2025-08-12T19:21:27.054+0800","caller":"signin/service.go:213","msg":"没有需要签到的任务"}
+{"level":"info","time":"2025-08-12T19:21:27.054+0800","caller":"zhxg-signin/main.go:59","msg":"签到任务执行完毕"}

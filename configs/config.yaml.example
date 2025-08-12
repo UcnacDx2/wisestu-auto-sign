@@ -1,0 +1,36 @@
+# 用户配置
+user:
+  username: ""          # 用户名
+  password: ""          # 密码
+  
+# 位置信息
+location:
+  longitude: 100.000000 # 经度
+  latitude: 20.000000   # 纬度
+  
+# LLM API 配置
+llm:
+  api_key: "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"           # API Key
+  endpoint: "https://xx.com/v1/chat/completions"
+  model: "gpt-4.1-mini"
+  
+# 签到配置
+signin:
+  base_url: "https://wisestu.neumooc.com"
+  retry_times: 3        # 重试次数
+  retry_interval: "5s"  # 重试间隔
+  
+# 调度配置
+scheduler:
+  enabled: true
+  cron: "0 8,14,18 * * 1"  # 每周一的 8点、14点、18点
+  timezone: "Asia/Shanghai"
+  
+# 日志配置
+logging:
+  level: "info"
+  file: "logs/signin.log"
+  max_size: 100         # MB
+  max_backups: 5
+  max_age: 30           # 天
+  debug: false          # 是否启用 HTTP 调试日志
