@@ -21,15 +21,27 @@ builds:
     binary: '{{ .ProjectName }}_v{{ .Version }}'
 
 archives:
-  - format: tar.gz
-    # this name template makes the OS and Arch compatible with the results of `uname`.
+  - id: linux-macos
+    format: tar.gz
     name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
     files:
       - configs/config.yaml.example
       - README.md
-    format_overrides:
-      - goos: windows
-        format: zip
+    builds:
+      - zhxg-signin
+    goos:
+      - linux
+      - darwin
+  - id: windows
+    format: zip
+    name_template: '{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}'
+    files:
+      - configs/config.yaml.example
+      - README.md
+    builds:
+      - zhxg-signin
+    goos:
+      - windows
 
 checksum:
   name_template: 'checksums.txt'
