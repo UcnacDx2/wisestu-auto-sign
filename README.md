@@ -1,6 +1,8 @@
 # 智慧学工自动签到工具
 
 这是一个用于智慧学工（wisestu）的实习自动签到 Go 程序，支持通过 LLM API 自动识别验证码和定时执行。
+<img width="1222" height="239" alt="IMG_20250812_205629" src="https://github.com/user-attachments/assets/44d5251d-4e58-4df5-a29e-d5ab5a4d49d1" />
+
 
 ## ✨ 功能特性
 
