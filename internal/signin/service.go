@@ -213,33 +213,154 @@ func (s *Service) performSignInFlow() error {
 		s.log.Info("没有需要签到的任务")
 		return nil
 	}
-	signinID := listResp.Result.List[0].ID
-	s.log.Info("获取到签到任务", zap.Int("signinID", signinID))
 
-	// 点击签到
-	reqBody := CheckOutsideFlagRequest{
-		Action: "checkOutsideFlag",
-		ID:     signinID,
-		Lng:    s.cfg.Location.Longitude,
-		Lat:    s.cfg.Location.Latitude,
+	var signinID int
+	var batchNo int
+	foundInternship := false
+
+	// 遍历列表查找 "实习" 签到任务
+	for _, item := range listResp.Result.List {
+		if item.SigninTypeName == "实习" {
+			signinID = item.ID
+			batchNo = item.BatchNo
+			foundInternship = true
+			s.log.Info("找到 '实习' 签到任务", zap.Int("signinID", signinID), zap.Int("batchNo", batchNo))
+			break
+		}
 	}
 
-	resp, err = s.httpClient.R().
+	if !foundInternship {
+		s.log.Warn("未找到 '实习' 签到任务，将使用列表中的第一个任务进行签到")
+		signinID = listResp.Result.List[0].ID
+		batchNo = listResp.Result.List[0].BatchNo // 假设第一个任务也有 batch_no
+		s.log.Info("使用第一个签到任务", zap.Int("signinID", signinID), zap.Int("batchNo", batchNo))
+	}
+
+	// 1. 调用“进入签到”接口
+	if err := s.getSigninDetails(signinID, batchNo); err != nil {
+		return fmt.Errorf("进入签到失败: %w", err)
+	}
+
+	// 2. 调用“updateLocationSignin”接口
+	if err := s.updateLocationSignin(signinID, batchNo); err != nil {
+		return fmt.Errorf("提交位置签到失败: %w", err)
+	}
+
+	// 3. 调用“签到情况”接口
+	if err := s.getSigninSuccess(signinID, batchNo); err != nil {
+		return fmt.Errorf("获取签到情况失败: %w", err)
+	}
+
+	s.log.Info("签到流程执行完毕")
+	return nil
+}
+
+// getSigninDetails 调用“进入签到”接口
+func (s *Service) getSigninDetails(signinID, batchNo int) error {
+	reqBody := GetSigninDetailsRequest{
+		Action:  "getSigninDetails",
+		ID:      signinID,
+		BatchNo: batchNo,
+	}
+
+	resp, err := s.httpClient.R().
 		SetBody(reqBody).
 		Post("/dnui/api/student/signin/signin.api")
 
 	if err != nil {
-		return fmt.Errorf("签到请求失败: %w", err)
+		return fmt.Errorf("进入签到请求失败: %w", err)
 	}
 
+	var baseResp BaseResponse
 	if err := json.Unmarshal(resp.Body(), &baseResp); err != nil {
-		return fmt.Errorf("解析签到响应失败: %w", err)
+		return fmt.Errorf("解析进入签到响应失败: %w", err)
 	}
 
-	if baseResp.Code == 0 {
-		s.log.Info("签到成功", zap.String("message", baseResp.Message))
-		return nil
+	if baseResp.Code != 0 {
+		return fmt.Errorf("进入签到失败, code: %d, message: %s", baseResp.Code, baseResp.Message)
 	}
 
-	return fmt.Errorf("签到失败, code: %d, message: %s", baseResp.Code, baseResp.Message)
+	s.log.Info("成功进入签到", zap.Int("signinID", signinID), zap.Int("batchNo", batchNo))
+	return nil
+}
+
+// updateLocationSignin 调用“updateLocationSignin”接口
+func (s *Service) updateLocationSignin(signinID, batchNo int) error {
+	// 构建 signin_location 字段的 JSON 字符串
+	signinLocation := SigninLocation{
+		Point: SigninLocationPoint{
+			Lng: s.cfg.Location.Longitude,
+			Lat: s.cfg.Location.Latitude,
+		},
+		Address: "柳州市鱼峰区葡萄山路7号科技楼", // 从 Apifox CLI 中获取的固定地址
+		AddressComponents: SigninLocationAddressComponents{
+			StreetNumber: "7号",
+			Street:       "葡萄山路",
+			District:     "鱼峰区",
+			City:         "柳州市",
+			Province:     "广西壮族自治区",
+		},
+	}
+
+	signinLocationJSON, err := json.Marshal(signinLocation)
+	if err != nil {
+		return fmt.Errorf("序列化 signin_location 失败: %w", err)
+	}
+
+	reqBody := UpdateLocationSigninRequest{
+		Action:         "updateLocationSignin",
+		ID:             signinID,
+		BatchNo:        batchNo,
+		SigninLocation: string(signinLocationJSON),
+		OutsideFlag:    "1", // 从 Apifox CLI 中获取的固定值
+	}
+
+	resp, err := s.httpClient.R().
+		SetBody(reqBody).
+		Post("/dnui/api/student/signin/signin.api")
+
+	if err != nil {
+		return fmt.Errorf("提交位置签到请求失败: %w", err)
+	}
+
+	var baseResp BaseResponse
+	if err := json.Unmarshal(resp.Body(), &baseResp); err != nil {
+		return fmt.Errorf("解析位置签到响应失败: %w", err)
+	}
+
+	if baseResp.Code != 0 {
+		return fmt.Errorf("位置签到失败, code: %d, message: %s", baseResp.Code, baseResp.Message)
+	}
+
+	s.log.Info("位置签到成功", zap.Int("signinID", signinID), zap.Int("batchNo", batchNo))
+	return nil
+}
+
+// getSigninSuccess 调用“签到情况”接口
+func (s *Service) getSigninSuccess(signinID, batchNo int) error {
+	reqBody := GetSigninSuccessRequest{
+		Action:  "getSigninSuccess",
+		ID:      signinID,
+		BatchNo: batchNo,
+	}
+
+	resp, err := s.httpClient.R().
+		SetBody(reqBody).
+		Post("/dnui/api/student/signin/signin.api")
+
+	if err != nil {
+		return fmt.Errorf("获取签到情况请求失败: %w", err)
+	}
+
+	var baseResp BaseResponse
+	if err := json.Unmarshal(resp.Body(), &baseResp); err != nil {
+		return fmt.Errorf("解析签到情况响应失败: %w", err)
+	}
+
+	if baseResp.Code != 0 {
+		return fmt.Errorf("获取签到情况失败, code: %d, message: %s", baseResp.Code, baseResp.Message)
+	}
+
+	s.log.Info("成功获取签到情况", zap.Int("signinID", signinID), zap.Int("batchNo", batchNo))
+	return nil
 }
