@@ -31,6 +31,7 @@ type UnSigninListResponse struct {
 		List []struct {
 			ID             int    `json:"id"`
 			SigninTypeName string `json:"signin_type_name"`
+			BatchNo        int    `json:"batch_no"`
 		} `json:"list"`
 	} `json:"result"`
 }
@@ -41,4 +42,49 @@ type CheckOutsideFlagRequest struct {
 	ID     int     `json:"id"`
 	Lng    float64 `json:"lng"`
 	Lat    float64 `json:"lat"`
+}
+
+// GetSigninDetailsRequest 进入签到请求的结构
+type GetSigninDetailsRequest struct {
+	Action string `json:"action"`
+	ID     int    `json:"id"`
+	BatchNo int   `json:"batch_no"`
+}
+
+// UpdateLocationSigninRequest 更新位置签到请求的结构
+type UpdateLocationSigninRequest struct {
+	Action         string         `json:"action"`
+	ID             int            `json:"id"`
+	BatchNo        int            `json:"batch_no"`
+	SigninLocation string         `json:"signin_location"` // 这是一个JSON字符串
+	OutsideFlag    string         `json:"outside_flag"`
+}
+
+// SigninLocation 用于 UpdateLocationSigninRequest 中的 signin_location 字段
+type SigninLocation struct {
+	Point           SigninLocationPoint           `json:"point"`
+	Address         string                        `json:"address"`
+	AddressComponents SigninLocationAddressComponents `json:"addressComponents"`
+}
+
+// SigninLocationPoint 用于 SigninLocation 中的 point 字段
+type SigninLocationPoint struct {
+	Lng float64 `json:"lng"`
+	Lat float64 `json:"lat"`
+}
+
+// SigninLocationAddressComponents 用于 SigninLocation 中的 addressComponents 字段
+type SigninLocationAddressComponents struct {
+	StreetNumber string `json:"streetNumber"`
+	Street       string `json:"street"`
+	District     string `json:"district"`
+	City         string `json:"city"`
+	Province     string `json:"province"`
+}
+
+// GetSigninSuccessRequest 签到情况请求的结构
+type GetSigninSuccessRequest struct {
+	Action  string `json:"action"`
+	ID      int    `json:"id"`
+	BatchNo int    `json:"batch_no"`
 }
