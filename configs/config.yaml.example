@@ -3,11 +3,17 @@ user:
   username: ""          # 用户名
   password: ""          # 密码
   
-# 位置信息
+# 位置信息（签到时原样上报，需按实际地点填写）
 location:
-  longitude: 100.000000 # 经度
-  latitude: 20.000000   # 纬度
-  
+  longitude: 0.000000   # 经度，必须填写
+  latitude: 0.000000    # 纬度，必须填写
+  address: "XX省XX市XX区XX路X号XX楼" # 完整地址
+  province: "XX省"
+  city: "XX市"
+  district: "XX区"
+  street: "XX路"
+  street_number: "X号"
+
 # LLM API 配置
 llm:
   api_key: "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"           # API Key
@@ -16,7 +22,7 @@ llm:
   
 # 签到配置
 signin:
-  base_url: "https://example.com"
+  base_url: "https://example.com"  # 签到平台基址，按实际填写
   retry_times: 3        # 重试次数
   retry_interval: "5s"  # 重试间隔
   

@@ -24,9 +24,18 @@ type UserConfig struct {
 }
 
 // LocationConfig 存储地理位置信息
+//
+// 地址需要自行填写，不提供任何默认值：签到接口会把 address 与 addressComponents
+// 原样上报，填错会直接导致签到失败。
 type LocationConfig struct {
-	Longitude float64 `mapstructure:"longitude"`
-	Latitude  float64 `mapstructure:"latitude"`
+	Longitude    float64 `mapstructure:"longitude"`
+	Latitude     float64 `mapstructure:"latitude"`
+	Address      string  `mapstructure:"address"`
+	Province     string  `mapstructure:"province"`
+	City         string  `mapstructure:"city"`
+	District     string  `mapstructure:"district"`
+	Street       string  `mapstructure:"street"`
+	StreetNumber string  `mapstructure:"street_number"`
 }
 
 // LLMConfig 存储 LLM API 的配置

@@ -48,8 +48,9 @@ cp configs/config.yaml.example configs/config.yaml
 - `user.username`: 您的学号
 - `user.password`: 您的密码
 - `llm.api_key`: 您的 LLM API Key
-- `location.longitude`: 签到时使用的经度
-- `location.latitude`: 签到时使用的纬度
+- `signin.base_url`: 签到平台的基址
+- `location.longitude` / `location.latitude`: 签到时使用的经纬度
+- `location.address` 及 `province` / `city` / `district` / `street` / `street_number`: 签到时上报的地址，需按实际地点填写（未填写时签到会直接报错退出）
 
 ### 4. 运行
 

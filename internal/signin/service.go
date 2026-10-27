@@ -286,19 +286,24 @@ func (s *Service) getSigninDetails(signinID, batchNo int) error {
 
 // updateLocationSignin 调用“updateLocationSignin”接口
 func (s *Service) updateLocationSignin(signinID, batchNo int) error {
+	// 地址来自配置，仓库里不保存任何真实地点
+	if s.cfg.Location.Address == "" {
+		return errors.New("未配置签到地址：请在配置文件的 location.address / province / city / district / street / street_number 中填写")
+	}
+
 	// 构建 signin_location 字段的 JSON 字符串
 	signinLocation := SigninLocation{
 		Point: SigninLocationPoint{
 			Lng: s.cfg.Location.Longitude,
 			Lat: s.cfg.Location.Latitude,
 		},
-		Address: "XX省XX市XX区XX路X号XX楼", // 从 Apifox CLI 中获取的固定地址
+		Address: s.cfg.Location.Address,
 		AddressComponents: SigninLocationAddressComponents{
-			StreetNumber: "X号",
-			Street:       "XX路",
-			District:     "XX区",
-			City:         "XX市",
-			Province:     "XX省",
+			StreetNumber: s.cfg.Location.StreetNumber,
+			Street:       s.cfg.Location.Street,
+			District:     s.cfg.Location.District,
+			City:         s.cfg.Location.City,
+			Province:     s.cfg.Location.Province,
 		},
 	}
 

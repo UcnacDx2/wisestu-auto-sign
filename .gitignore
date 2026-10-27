@@ -1,0 +1,11 @@
+# 本地配置（含账号、密码与 API Key）
+configs/config.yaml
+
+# 运行日志（可能包含请求体与登录态）
+logs/
+*.log
+
+# 构建产物
+zhxg-signin
+zhxg-signin.exe
+dist/
